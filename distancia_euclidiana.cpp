@@ -2,6 +2,7 @@
 #include <cmath>
 #include <cstdlib> //Se incluye para usar la función exit()
 
+
 // Definir la estructura de un punto en 2D
 struct Point
 {
@@ -38,13 +39,13 @@ void leerPuntos(Point puntos[], int n)
         {
             std::cout << "Ingrese las coordenadas del punto " << i + 1 << " (x, y): ";
             std::cin >> puntos[i].x >> coma >> puntos[i].y;
-            if (coma != ','){
-                std::cout << "Por favor ingrese los datos con el formato (x, y)" << std::endl;
-            }
+            if (std::cin.fail() || coma != ','){
+                std::cout << "Punto ingresado no válido, los valores deben ser decimales (double)" << std::endl;
+                exit(1);
                 
             } 
         }
-    
+    }
     else
     {
         // Si la cantidad de puntos es diferente de 4, entonces se retorna un mensaje de instrucción de uso y se termina el programa.
@@ -130,9 +131,9 @@ int main()
     std::cout << "Ingrese las coordenadas del punto desde el que calcular la distancia (x, y): ";
     
     std::cin >> pUsuario.x >> coma >> pUsuario.y;
-    if (coma != ','){
-        std::cout << "Por favor ingrese los datos con el formato (x, y)" << std::endl;
-
+    if (std::cin.fail() || coma != ','){
+        std::cout << "Punto ingresado no válido, los valores deben ser decimales (double)" << std::endl;
+        exit(1);
     }
 
     // Calcular la distancia más cercana
