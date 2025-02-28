@@ -1,3 +1,4 @@
+//Por: David Orlando Riaño Morales
 #include <iostream>
 #include <cmath>
 #include <cstdlib> //Se incluye para usar la función exit()
